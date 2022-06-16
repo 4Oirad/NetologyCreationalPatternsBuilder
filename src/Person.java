@@ -3,7 +3,7 @@ public class Person {
     private final String name;
     private final String surname;
     private int age;
-    private String currentCity;
+    private String address;
 
     public Person(String name, String surname) {
         this.name = name;
@@ -17,7 +17,12 @@ public class Person {
     }
 
     public boolean hasAge() {
-        if (age != 0) return true;
+        if (age > 0) return true;
+        return false;
+    }
+
+    public boolean hasAddress() {
+        if (address != null) return true;
         return false;
     }
 
@@ -37,7 +42,11 @@ public class Person {
         return age;
     }
 
-    public String getCurrentCity() {
-        return currentCity;
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
