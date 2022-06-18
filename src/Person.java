@@ -16,6 +16,13 @@ public class Person {
         this.age = age;
     }
 
+    public Person(String name, String surname, int age, String address) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.address = address;
+    }
+
     public boolean hasAge() {
         if (age > 0) return true;
         return false;
@@ -48,5 +55,22 @@ public class Person {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public PersonBuilder newChildBuilder() {
+        PersonBuilder personBuilder = new PersonBuilderImpl();
+        personBuilder.setSurname(this.surname);
+        personBuilder.setAddress(this.address);
+        return personBuilder;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age=" + age +
+                ", address='" + address + '\'' +
+                '}';
     }
 }
